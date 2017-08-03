@@ -1,0 +1,12 @@
+resources:
+- name: source-code
+  type: git
+  source:
+    uri: https://github.com/matthewblackES/concourse-workshop
+
+jobs:
+- name: matt-hello-world
+  plan:
+  - get: source-code
+  - task: print-hello
+    file: source-code/produce-greeting.yml
