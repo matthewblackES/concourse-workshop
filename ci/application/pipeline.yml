@@ -1,0 +1,24 @@
+resources:
+
+- name: source-code
+  type: git
+  source:
+    uri: https://github.com/matthewblackES/concourse-workshop
+    branch: master
+
+jobs:
+- name: build-and-verify
+  plan:
+  - get: source-code
+    trigger: true
+  - task: build-and-verify
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: busybox
+      inputs:
+        - name: source-code
+      run:
+        path: source-code/produce-greeting.sh
