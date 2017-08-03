@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
-echo "Hello Matt Legend" > greeting
+echo "Hello Matt Legends" > greeting
 cat greeting
